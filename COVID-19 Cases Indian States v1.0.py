@@ -1,7 +1,7 @@
 """
 Code Name: Detailed Barchart of Covid Cases for Top 10 state of India
 Code Author: Jitin Pavithran
-Code Version: 1.0
+Code Version: 1.1
 Code Description: This code will generate a combined bar charts displaying the total number of Cases,Cured and Deaths for the Top 10 States of India.
 """
 
@@ -11,9 +11,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import requests
 import time
+import datetime
 
 # Compute the starttime to evaluate the total code execution time
 st=time.time()
+
+# compute code execution date and time to add in the final figure of Bar chart
+now= datetime.datetime.now()
 
 # Import the data from using the api key provided the government website and create a JSON object out of this.
 url2 = r"https://api.data.gov.in/resource/cd08e47b-bd70-4efb-8ebc-589344934531?format=viz&limit=all&api-key=579b464db66ec23bdd000001cdc3b564546246a772a26393094f5645&_=1587843731797"
@@ -56,7 +60,6 @@ width = 0.2
 
 # Create a range from 0-9 based corresponding to TOP 10 states
 x=np.arange(len((cov_df['Name of State / UT'][:10])))
-print(x)
 
 # Create BAR chart object corresponding to each columns Confirmed cases, cure patients and Deaths respectively
 r1 = ax.bar(x,cov_df['Total Confirmed cases'][:10],width=width,color='b',label = 'Total No. of Confirmed Cases')
@@ -65,8 +68,8 @@ r3 = ax.bar(x+(width*2),cov_df['Death'][:10],width=width,color='r',label = 'Tota
 ax.set_xticks(x+width+width/2)
 
 # Replace the values of x with the names of the States/UT
-ax.set_xticklabels(cov_df['Name of State / UT'][:10])
-ax.set_title('COVID-19 INDIA Data (Top 10 States)')
+ax.set_xticklabels(cov_df['Name of State / UT'][:10],rotation=60)
+ax.set_title(f'COVID-19 INDIA Data (Top 10 States) as on {now.strftime("%d %B, %Y %H:%M")}')
 ax.legend()
 
 # Create function of autolabele for annotation of Figures on each of the BAR going to be displayed in the chart
@@ -85,7 +88,7 @@ et = time.time()
 print(et-st)
 
 # Save the Bar chart in jpg format in the local drive
-plt.savefig(r"C:\Users\jpavithr\OneDrive - Capgemini\Desktop\Automation Drive - Python training\Pandas\real python\Covid-19\Stats.jpg")
+plt.savefig(r"C:\Users\jpavithr\OneDrive - Capgemini\Desktop\Automation Drive - Python training\Pandas\real python\Covid-19\Covid-19 Statistics.jpg")
 
 # Save the Dataframe into CSV file
 cov_df.to_csv(r"C:\Users\jpavithr\OneDrive - Capgemini\Desktop\Automation Drive - Python training\Pandas\real python\Covid-19\COVID-19.csv",index=False)
@@ -93,3 +96,4 @@ cov_df.to_csv(r"C:\Users\jpavithr\OneDrive - Capgemini\Desktop\Automation Drive 
 # Display the Bar chart
 fig.tight_layout()
 plt.show()
+plt.close()
