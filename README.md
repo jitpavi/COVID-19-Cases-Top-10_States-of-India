@@ -38,7 +38,7 @@ The purpose of this project is to produce a combined bar chart for the top 10 st
 
 ## Expected Output:
 
-* [Covid-19 Statistics.jpg](https://github.com/jitpavi/Covid-19-Cases-in-States-of-India/blob/master/Covid-19%20Statistics.jpg)
+![Covid-19 Statistics](https://github.com/jitpavi/Covid-19-Cases-in-States-of-India/blob/master/Covid-19%20Statistics.jpg)
 
 ## Featured Notebooks/Analysis/Deliverables:
 
