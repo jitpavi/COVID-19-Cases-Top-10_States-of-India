@@ -46,7 +46,7 @@ The purpose of this project is to produce a combined bar chart for the top 10 st
 
 ## Versioning:
 
-Code version - v1.0
+Code version - v1.1
 
 ## Authors:
 
