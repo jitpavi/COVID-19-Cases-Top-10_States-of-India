@@ -4,7 +4,7 @@
 #### -- Project Status: [Completed]
 
 ## Project Intro/Objective
-The purpose of this project is to produce a bar chart for the top 10 states of India currently with the most affected cases of Covid-19.
+The purpose of this project is to produce a combined bar chart for the top 10 states of India currently with the most affected cases of Covid-19 where each bar is displaying Total no of covid cases, Total no. of cured cases and Total no. of Deaths respectively for each states.
 
 ### Methods Used
 * Explorative Data Analysis
@@ -30,18 +30,19 @@ The purpose of this project is to produce a bar chart for the top 10 states of I
   * Numpy
 
 ### Workflow
-1. Using request module download the data for the city Mumbai.
+1. Using request module download the data from the govt. website.
 2. Convert the response data into JSON obejct.
-3. Create a Dataframe using Pandas from the JSON object.
-4. Derive a resultant column using other columns including Traffic index Live, JamsDelay,Jamscount and JamsLength.
-5. Create a Pandas grouby object using Weekday and Hour colum and perform unstack to give a look of pivot table.
-6. Using Seaborn create a HeatMap object and import the grouby data as the input
+3. Create a Dataframe using Pandas from the JSON object with columns Death,Total Confirmed cases and Cured/Discharged/Migrated.
+4. Sort the dataframe by the column name Total Confirmed cases in descending order.
+5. Create a fig subplot and create 3 ax objects where each representing a bar chart for the columns  Total no of covid cases, Total no. of cured cases and Total no. of Deaths respectively
+6. Enable annotation on each bar denoting the number of cases.
+7. Display the combine bar charts for the top 10 states with the most affected cases.
 
 ## Expected Output
-* [Covid-19 Statistics.jpg](https://github.com/jitpavi/Mumbai_Traffic_Analysis/blob/master/Traffic_HeatMap.jpg)
+* [Covid-19 Statistics.jpg](https://github.com/jitpavi/Covid-19-Cases-in-States-of-India/blob/master/Covid-19%20Statistics.jpg)
 
 ## Featured Notebooks/Analysis/Deliverables
-* [COVID-19 Cases Indian States v1.0.py](https://github.com/jitpavi/Mumbai_Traffic_Analysis/blob/master/Mum-Traffic_Analysisv1.0.py)
+* [COVID-19 Cases Indian States v1.0.py](https://github.com/jitpavi/Covid-19-Cases-in-States-of-India/blob/master/COVID-19%20Cases%20Indian%20States%20v1.0.py)
 
 ## Versioning
 Code version - v1.0
@@ -50,7 +51,6 @@ Code version - v1.0
 
 * **Jitin Pavithran** - [jitpavi](https://github.com/jitpavi)
 
-## Acknowledgments and References
+## Acknowledgments
 
-* https://www.tomtom.com/
-* https://towardsdatascience.com/scraping-live-traffic-data-in-3-lines-of-code-step-by-step-9b2cc7ddf31f
+* https://data.gov.in/major-indicator/covid-19-india-data-source-mohfw
